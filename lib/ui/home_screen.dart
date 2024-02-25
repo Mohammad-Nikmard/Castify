@@ -32,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             SliverPersistentHeader(
               delegate: TabBarDelegate(
                 TabBar(
+                  indicatorSize: TabBarIndicatorSize.tab,
                   controller: _controller,
                   labelColor: MyColor.whiteColor,
                   unselectedLabelColor: MyColor.greyColor,
@@ -84,9 +85,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             fontFamily: "MR", color: MyColor.orangeColor, fontSize: 24),
       ),
       centerTitle: true,
+      scrolledUnderElevation: 0.0,
       leading: Image.asset("images/icon_notification.png"),
       actions: [
-        Image.asset("images/icon_search.png"),
+        Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Image.asset("images/icon_search.png"),
+        ),
       ],
       backgroundColor: Colors.transparent,
       elevation: 0,

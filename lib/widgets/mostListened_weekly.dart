@@ -1,16 +1,15 @@
 import 'package:castify/constants/constants.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class MostListenedWeeklyWidget extends StatelessWidget {
-  MostListenedWeeklyWidget(
+  const MostListenedWeeklyWidget(
       {super.key,
       required this.image,
       required this.title,
       required this.subTitle});
-  String image;
-  String title;
-  String subTitle;
+  final String image;
+  final String title;
+  final String subTitle;
   @override
   Widget build(BuildContext context) {
     return Container(

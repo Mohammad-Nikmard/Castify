@@ -15,7 +15,7 @@ dependencies:
   provider: ^6.1.1
   get_it: ^7.6.4
   carousel_slider: ^4.2.1
-  dots_indicator: ^2.1.1
+  dots_indicator: ^3.0.0
   persian_tools: ^1.0.3
 
   cupertino_icons: ^1.0.2

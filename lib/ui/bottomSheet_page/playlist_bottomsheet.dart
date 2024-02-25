@@ -69,7 +69,7 @@ class _PlayListBottomSheetState extends State<PlayListBottomSheet> {
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(left: 13, right: 13, top: 15),
+                    padding: EdgeInsets.only(left: 16, right: 16, top: 15),
                     child: PlayListWidget(
                       image: provider.seasonal[index].image,
                       subTitle: provider.seasonal[index].subTitle,
@@ -89,7 +89,7 @@ class _PlayListBottomSheetState extends State<PlayListBottomSheet> {
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(left: 13, right: 13, top: 15),
+                    padding: EdgeInsets.only(left: 9, right: 9, top: 15),
                     child: PlayListWidget(
                       image: provider.others[index].image,
                       subTitle: provider.others[index].subTitle,

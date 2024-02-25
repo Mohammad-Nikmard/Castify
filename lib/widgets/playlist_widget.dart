@@ -3,9 +3,8 @@ import 'package:castify/model/playlistEnum.dart';
 import 'package:flutter/material.dart';
 import 'package:persian_tools/persian_tools.dart';
 
-// ignore: must_be_immutable
 class PlayListWidget extends StatelessWidget {
-  PlayListWidget({
+  const PlayListWidget({
     super.key,
     required this.image,
     required this.subTitle,
@@ -15,13 +14,13 @@ class PlayListWidget extends StatelessWidget {
     required this.timerLength,
     required this.passedTime,
   });
-  String image;
-  String title;
-  String subTitle;
-  String pageCounter;
-  PlayListType type;
-  String timerLength;
-  String passedTime;
+  final String image;
+  final String title;
+  final String subTitle;
+  final String pageCounter;
+  final PlayListType type;
+  final String timerLength;
+  final String passedTime;
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +67,7 @@ class PlayListWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
                   image: AssetImage("images/$image"),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

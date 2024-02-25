@@ -70,7 +70,7 @@ class _AllWidgetState extends State<AllWidget> {
                       ),
                       DotsIndicator(
                         dotsCount: 2,
-                        position: _current.toDouble(),
+                        position: _current,
                         decorator: DotsDecorator(
                           activeColor: MyColor.whiteColor,
                           color: MyColor.greyColor,

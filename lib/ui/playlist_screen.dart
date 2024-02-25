@@ -20,13 +20,13 @@ class _PlayListScreenState extends State<PlayListScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _getHeader(),
+            _Header(),
             Column(
               children: [
                 SizedBox(height: 22),
-                _playerPostion(),
+                PlayerPosition(),
                 SizedBox(height: 32),
-                _getPlayer(),
+                Player(),
                 _getItemHeader("کتاب الکترونیکی"),
                 PlayListWidget(
                   image: "podcast1.png",
@@ -38,7 +38,7 @@ class _PlayListScreenState extends State<PlayListScreen> {
                   timerLength: "۱۲:۰۵",
                 ),
                 _getItemHeader("توضیحات"),
-                _descrption(),
+                Description(),
                 SizedBox(height: 32),
               ],
             ),
@@ -48,7 +48,58 @@ class _PlayListScreenState extends State<PlayListScreen> {
     );
   }
 
-  Widget _getHeader() {
+  Widget _getItemHeader(String name) {
+    return Padding(
+      padding: EdgeInsets.only(top: 32, bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            name,
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          SizedBox(width: 24),
+        ],
+      ),
+    );
+  }
+
+  PreferredSizeWidget _getAppBar() {
+    return AppBar(
+      toolbarHeight: 68,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      scrolledUnderElevation: 0.0,
+      title: Text(
+        "پادکست",
+        style: TextStyle(
+            color: MyColor.orangeColor, fontFamily: "MR", fontSize: 24),
+      ),
+      centerTitle: true,
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Image.asset("images/icon_arrow-circle-right.png"),
+        ),
+      ],
+      leadingWidth: 100,
+      leading: Row(
+        children: [
+          SizedBox(width: 24),
+          Image.asset("images/icon_add-circle.png"),
+          SizedBox(width: 24),
+          Image.asset("images/icon_heart.png"),
+        ],
+      ),
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  const _Header();
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Image.asset("images/poster.png"),
@@ -152,93 +203,13 @@ class _PlayListScreenState extends State<PlayListScreen> {
       ],
     );
   }
+}
 
-  Widget _getPlayer() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        InkWell(
-          onTap: () {
-            showModalBottomSheet(
-              isScrollControlled: true,
-              backgroundColor: Colors.transparent,
-              context: context,
-              builder: (context) {
-                return DraggableScrollableSheet(
-                  initialChildSize: 0.4,
-                  maxChildSize: 0.9,
-                  minChildSize: 0.2,
-                  builder: ((context, scrollController) {
-                    return PlayListBottomSheet(
-                      controller: scrollController,
-                    );
-                  }),
-                );
-              },
-            );
-          },
-          child: Image.asset("images/icon_music-playlist.png"),
-        ),
-        Image.asset("images/icon_backward-10-seconds.png"),
-        Container(
-          height: 56,
-          width: 56,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: MyColor.orangeColor,
-          ),
-          child: Center(
-            child: Image.asset(
-              "images/Play.png",
-              height: 28,
-              width: 28,
-            ),
-          ),
-        ),
-        Image.asset("images/icon_forward-10-seconds.png"),
-        Image.asset("images/icon_timer.png"),
-      ],
-    );
-  }
+class PlayerPosition extends StatelessWidget {
+  const PlayerPosition({super.key});
 
-  Widget _getItemHeader(String name) {
-    return Padding(
-      padding: EdgeInsets.only(top: 32, bottom: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            name,
-            style: Theme.of(context).textTheme.displayMedium,
-          ),
-          SizedBox(width: 24),
-        ],
-      ),
-    );
-  }
-
-  Widget _descrption() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Container(
-          width: double.infinity,
-          child: Text(
-            "سعی کردم صفر تا صد تجربیاتم در این چند سال فعالیتم رو با شما به اشتراک بذارم و قطعا خیلی میتونه براتون مفید باشه پس ریز به ریزشو با تمرکز و با دقت گوش کنید.",
-            style: TextStyle(
-              color: MyColor.greyColor,
-              fontSize: 14,
-              fontFamily: "SM",
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _playerPostion() {
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24),
       child: Column(
@@ -324,29 +295,82 @@ class _PlayListScreenState extends State<PlayListScreen> {
       ),
     );
   }
+}
 
-  PreferredSizeWidget _getAppBar() {
-    return AppBar(
-      toolbarHeight: 68,
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      title: Text(
-        "پادکست",
-        style: TextStyle(
-            color: MyColor.orangeColor, fontFamily: "MR", fontSize: 24),
-      ),
-      centerTitle: true,
-      actions: [
-        Image.asset("images/icon_arrow-circle-right.png"),
+class Player extends StatelessWidget {
+  const Player({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        InkWell(
+          onTap: () {
+            showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              context: context,
+              builder: (context) {
+                return DraggableScrollableSheet(
+                  initialChildSize: 0.4,
+                  maxChildSize: 0.9,
+                  minChildSize: 0.2,
+                  builder: ((context, scrollController) {
+                    return PlayListBottomSheet(
+                      controller: scrollController,
+                    );
+                  }),
+                );
+              },
+            );
+          },
+          child: Image.asset("images/icon_music-playlist.png"),
+        ),
+        Image.asset("images/icon_backward-10-seconds.png"),
+        Container(
+          height: 56,
+          width: 56,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: MyColor.orangeColor,
+          ),
+          child: Center(
+            child: Image.asset(
+              "images/Play.png",
+              height: 28,
+              width: 28,
+            ),
+          ),
+        ),
+        Image.asset("images/icon_forward-10-seconds.png"),
+        Image.asset("images/icon_timer.png"),
       ],
-      leadingWidth: 100,
-      leading: Row(
-        children: [
-          SizedBox(width: 24),
-          Image.asset("images/icon_add-circle.png"),
-          SizedBox(width: 24),
-          Image.asset("images/icon_heart.png"),
-        ],
+    );
+  }
+}
+
+class Description extends StatelessWidget {
+  const Description({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Container(
+          width: double.infinity,
+          child: Text(
+            "سعی کردم صفر تا صد تجربیاتم در این چند سال فعالیتم رو با شما به اشتراک بذارم و قطعا خیلی میتونه براتون مفید باشه پس ریز به ریزشو با تمرکز و با دقت گوش کنید.",
+            style: TextStyle(
+              color: MyColor.greyColor,
+              fontSize: 14,
+              fontFamily: "SM",
+            ),
+          ),
+        ),
       ),
     );
   }

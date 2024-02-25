@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CategoryWidget extends StatelessWidget {
-  CategoryWidget({super.key, required this.image, required this.title});
-  String image;
-  String title;
+  const CategoryWidget({super.key, required this.image, required this.title});
+  final String image;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
