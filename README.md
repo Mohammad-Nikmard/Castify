@@ -1,16 +1,7 @@
-# castify
+# Castify
 
-A new Flutter project.
+![mockup](assets/mockup.png)
 
-## Getting Started
+## Overview 
+This is an small ui for a podcast application called `Castify`. Users can see different types of playlists and categories. The local database of this app has been handled with MVVM architecture for the separation of layers and to keep eveything clean respectively. 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
