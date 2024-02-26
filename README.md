@@ -24,7 +24,6 @@ Porject uses MVVM architecture as an example and also a path to keep the project
   - dots_indicator
   - persian_tools
 
-  - 
 ## Project Setup
 To run the application do the following :
 
